@@ -22,6 +22,8 @@ export class BiemonthlyResult {
   public validations (bimesterInfo: BiemonthlyResultInput): void {
     const bimesters = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']
     const disciplines = ['Biologia', 'Artes', 'Geografia', 'Sociologia']
+    const MIN_GRADE = 0
+    const MAX_GRADE = 10
 
     if (!bimesters.some((bimester) => bimester === bimesterInfo.bimester)) {
       throw new InvalidParams("Bimester must be one of following: 'PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO'")
@@ -29,6 +31,10 @@ export class BiemonthlyResult {
 
     if (!disciplines.some((discipline) => discipline === bimesterInfo.discipline)) {
       throw new InvalidParams("Discipline must be one of following: 'Biologia', 'Artes', 'Geografia', 'Sociologia'")
+    }
+
+    if (bimesterInfo.grade < MIN_GRADE || bimesterInfo.grade > MAX_GRADE) {
+      throw new InvalidParams('Grade value must be between 0 and 10')
     }
   }
 }
