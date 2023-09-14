@@ -3,7 +3,7 @@ import { type BiemonthlyResultInput } from '../../src/protocols/biemonthly-resul
 import { CreateResult } from '../../src/services/create-result'
 
 describe('CreateResult Service', () => {
-  test('1. should create and BiemonthlyResult entity with the right values', () => {
+  test('1. should calls create method of BiemonthlyResult entity with the right values', () => {
     // System under test
     const biemonthlyResult = new BiemonthlyResult()
     const sut = new CreateResult(biemonthlyResult)
