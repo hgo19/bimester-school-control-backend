@@ -37,4 +37,16 @@ export class BiemonthlyResult {
       throw new InvalidParams('Grade value must be between 0 and 10')
     }
   }
+
+  get bimester (): string {
+    return this._bimester
+  }
+
+  get discipline (): string {
+    return this._discipline
+  }
+
+  get grade (): number {
+    return this._grade
+  }
 }
