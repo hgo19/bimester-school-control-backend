@@ -21,10 +21,14 @@ export class BiemonthlyResult {
 
   public validations (bimesterInfo: BiemonthlyResultInput): void {
     const bimesters = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']
-    // const disciplines = ['Biologia', 'Artes', 'Geografia', 'Sociologia']
+    const disciplines = ['Biologia', 'Artes', 'Geografia', 'Sociologia']
 
     if (!bimesters.some((bimester) => bimester === bimesterInfo.bimester)) {
       throw new InvalidParams("Bimester must be one of following: 'PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO'")
+    }
+
+    if (!disciplines.some((discipline) => discipline === bimesterInfo.discipline)) {
+      throw new InvalidParams("Discipline must be one of following: 'Biologia', 'Artes', 'Geografia', 'Sociologia'")
     }
   }
 }
