@@ -1,4 +1,5 @@
 import { BiemonthlyResult } from '../../src/entity/biemonthly-result'
+import { InvalidParams } from '../../src/expections/invalid-param'
 import { type BiemonthlyResultInput } from '../../src/protocols/biemonthly-result-input'
 
 describe('BiemonthlyResult Entity', () => {
@@ -11,6 +12,6 @@ describe('BiemonthlyResult Entity', () => {
       grade: 5
     }
 
-    expect(() => { sut.create(input) }).toThrow()
+    expect(() => { sut.create(input) }).toThrow(new InvalidParams("Bimester must be one of following: 'PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO'"))
   })
 })
