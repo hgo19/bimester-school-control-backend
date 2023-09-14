@@ -1,3 +1,4 @@
+import { InvalidParams } from '../expections/invalid-param'
 import { type BiemonthlyResultInput } from '../protocols/biemonthly-result-input'
 
 export class BiemonthlyResult {
@@ -23,7 +24,7 @@ export class BiemonthlyResult {
     // const disciplines = ['Biologia', 'Artes', 'Geografia', 'Sociologia']
 
     if (!bimesters.some((bimester) => bimester === bimesterInfo.bimester)) {
-      throw new Error()
+      throw new InvalidParams("Bimester must be one of following: 'PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO'")
     }
   }
 }
