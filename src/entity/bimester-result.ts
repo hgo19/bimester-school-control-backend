@@ -1,4 +1,4 @@
-import { InvalidParams } from '../expections/invalid-param'
+import { InvalidParams } from '../exceptions/invalid-param'
 import { type BimesterResultInput } from '../protocols'
 
 export class BimesterResult {
