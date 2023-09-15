@@ -1,0 +1,16 @@
+DROP DATABASE IF EXISTS School;
+CREATE DATABASE School;
+USE School;
+
+CREATE TABLE bimester_result(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  bimester VARCHAR(255) NOT NULL,
+  discipline VARCHAR(255) NOT NULL,
+  grade INT NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO bimester_result(bimester, discipline, grade)
+    VALUES
+        ('PRIMEIRO', 'Geografia', 9);

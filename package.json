@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db-create": "ts-node src/database/create-db/runSqlScript.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:unit": "npm test -- --watch -c jest-config-unit.cjs",
     "test:verbose": "jest --watch"
