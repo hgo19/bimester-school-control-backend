@@ -1,6 +1,12 @@
 import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../../src/protocols/'
 
 export class BimesterRepositoryStub implements BimesterResultRepository {
+  async delete (id: string): Promise<boolean> {
+    return await new Promise(resolve => {
+      resolve(true)
+    })
+  }
+
   async getAll (): Promise<BimesterResultOutput[]> {
     return await new Promise(resolve => {
       resolve([{
