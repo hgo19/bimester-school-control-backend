@@ -65,4 +65,26 @@ describe('CreateResult Service', () => {
 
     await expect(sut.execute(input)).rejects.toThrow()
   })
+
+  test('4. should return the right object on success', async () => {
+    // System under test
+    const { sut } = makeSut()
+    const input: BiemonthlyResultInput = {
+      bimester: 'PRIMEIRO',
+      discipline: 'Geografia',
+      grade: 5
+    }
+
+    const expectedOutput = {
+      id: '1',
+      bimester: 'PRIMEIRO',
+      discipline: 'Geografia',
+      grade: 5,
+      createdAt: '2023-09-14 10:30:00'
+    }
+
+    const response = await sut.execute(input)
+
+    expect(response).toEqual(expectedOutput)
+  })
 })
