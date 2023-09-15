@@ -19,7 +19,7 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
   async isThereAlready (bimester: string, discipline: string): Promise<boolean> {
     const query = 'SELECT * FROM School.bimester_result AS b WHERE b.bimestre = ? AND b.disciplina = ?'
     const [[row]] = await this.persistence.execute<RowDataPacket[][] & BimesterResultInDb[]>(query, [bimester, discipline])
-    if (row !== undefined && row.length > 0) {
+    if (row !== undefined) {
       return true
     } else {
       return false
