@@ -1,6 +1,6 @@
 import { type BimesterResult } from '../entity/bimester-result'
 import { DisciplineAlreadyExistError } from '../exceptions/discipline-already-exist'
-import { type BimesterResultOutput, type BimesterResultInput, type BimesterResultRepository } from '../protocols/'
+import { type BimesterResultOutput, type BimesterResultInput, type BimesterResultRepository } from '../interfaces/'
 
 export class CreateResult {
   private readonly _entity: BimesterResult

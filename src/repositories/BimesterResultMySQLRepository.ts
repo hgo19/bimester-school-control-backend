@@ -1,4 +1,4 @@
-import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../protocols'
+import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../interfaces'
 import { type ResultSetHeader, type Pool, type RowDataPacket } from 'mysql2/promise'
 import { NotFoundError } from '../utils/http-erros'
 

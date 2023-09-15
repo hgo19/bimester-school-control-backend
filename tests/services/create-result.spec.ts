@@ -1,7 +1,7 @@
 import { BimesterResult } from '../../src/entity/bimester-result'
 import { CreateResult } from '../../src/services/create-result'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
-import { type BimesterResultRepository, type BimesterResultInput } from '../../src/protocols/'
+import { type BimesterResultRepository, type BimesterResultInput } from '../../src/interfaces/'
 
 interface SutTypes {
   repository: BimesterResultRepository

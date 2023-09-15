@@ -1,4 +1,4 @@
-import { type BimesterResultRepository } from '../protocols'
+import { type BimesterResultRepository } from '../interfaces'
 
 export class RemoveResult {
   private readonly _repository: BimesterResultRepository

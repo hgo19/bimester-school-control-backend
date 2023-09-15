@@ -1,5 +1,5 @@
 import { InvalidParams } from '../exceptions/invalid-param'
-import { type BimesterResultInput } from '../protocols'
+import { type BimesterResultInput } from '../interfaces'
 
 export class BimesterResult {
   private _bimester: string

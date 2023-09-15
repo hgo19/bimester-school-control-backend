@@ -1,6 +1,6 @@
 import { BimesterResult } from '../../src/entity/bimester-result'
 import { InvalidParams } from '../../src/exceptions/invalid-param'
-import { type BimesterResultInput } from '../../src/protocols/bimester-result-input'
+import { type BimesterResultInput } from '../../src/interfaces/bimester-result-input'
 
 describe('BimesterResult Entity', () => {
   beforeEach(() => {

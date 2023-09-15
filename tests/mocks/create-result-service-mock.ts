@@ -1,4 +1,4 @@
-import { type BimesterResultInput, type BimesterResultOutput } from '../../src/protocols'
+import { type BimesterResultInput, type BimesterResultOutput } from '../../src/interfaces'
 import { CreateResult } from '../../src/services/create-result'
 
 export class CreateResultStub extends CreateResult {
