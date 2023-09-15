@@ -4,13 +4,13 @@ USE School;
 
 CREATE TABLE bimester_result(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  bimester VARCHAR(255) NOT NULL,
-  discipline VARCHAR(255) NOT NULL,
-  grade INT NOT NULL,
-  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  bimestre VARCHAR(255) NOT NULL,
+  disciplina VARCHAR(255) NOT NULL,
+  nota INT NOT NULL,
+  criadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  atualizadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO bimester_result(bimester, discipline, grade)
+INSERT INTO bimester_result(bimestre, disciplina, nota)
     VALUES
         ('PRIMEIRO', 'Geografia', 9);
