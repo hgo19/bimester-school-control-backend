@@ -21,4 +21,14 @@ describe('RemoveResult Service', () => {
 
     await expect(sut.execute('invalid_id')).rejects.toThrow()
   })
+
+  test('3. should returns true on success', async () => {
+    // System under test
+    const repo = new BimesterRepositoryStub()
+    const sut = new RemoveResult(repo)
+
+    const response = await sut.execute('1')
+
+    expect(response).toBeTruthy()
+  })
 })
