@@ -16,6 +16,21 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
     this.persistence = connection
   }
 
+  async getAll (): Promise<BimesterResultOutput[]> {
+    const query = 'SELECT * FROM School.bimester_result'
+    const [rows] = await this.persistence.execute<RowDataPacket[] & BimesterResultInDb[]>(query)
+    const rowsTreatment = rows.map((e) => ({
+      id: e.id.toString(),
+      bimester: e.bimestere,
+      discipline: e.disciplina,
+      grade: e.nota,
+      createdAt: e.criadoEm,
+      updatedAt: e.atualizadoEm
+    }))
+
+    return rowsTreatment
+  }
+
   async isThereAlready (bimester: string, discipline: string): Promise<boolean> {
     const query = 'SELECT * FROM School.bimester_result AS b WHERE b.bimestre = ? AND b.disciplina = ?'
     const [[row]] = await this.persistence.execute<RowDataPacket[][] & BimesterResultInDb[]>(query, [bimester, discipline])
