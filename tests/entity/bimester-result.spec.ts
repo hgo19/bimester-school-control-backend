@@ -3,6 +3,10 @@ import { InvalidParams } from '../../src/exceptions/invalid-param'
 import { type BimesterResultInput } from '../../src/protocols/bimester-result-input'
 
 describe('BimesterResult Entity', () => {
+  beforeEach(() => {
+    jest.resetAllMocks() // Redefine todos os mocks antes de cada teste
+  })
+
   test("1. should throw an error if the bimester input isn't right", () => {
     // System under test
     const sut = new BimesterResult()

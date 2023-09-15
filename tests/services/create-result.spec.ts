@@ -22,6 +22,10 @@ const makeSut = (): SutTypes => {
 }
 
 describe('CreateResult Service', () => {
+  beforeEach(() => {
+    jest.resetAllMocks() // Redefine todos os mocks antes de cada teste
+  })
+
   test('1. should calls create method of BimesterResult entity with right values', async () => {
     // System under test
     const { sut, entity } = makeSut()
