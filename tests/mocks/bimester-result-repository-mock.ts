@@ -5,10 +5,10 @@ export class BimesterRepositoryStub implements BimesterResultRepository {
     return false
   }
 
-  async findOne (id: string): Promise<BimesterResultOutput> {
+  async findOne (id: number): Promise<BimesterResultOutput> {
     return await new Promise(resolve => {
       resolve({
-        id,
+        id: id.toString(),
         bimester: 'PRIMEIRO',
         discipline: 'Geografia',
         grade: 5,
