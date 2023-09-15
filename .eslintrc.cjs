@@ -30,5 +30,6 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     "@typescript-eslint/no-misused-promises": 0,
+    "@typescript-eslint/no-explicit-any": 0
   },
 };
