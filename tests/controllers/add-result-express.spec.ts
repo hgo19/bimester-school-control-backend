@@ -1,22 +1,38 @@
 import { AddResultExpress } from '../../src/controllers/add-result-express'
 import { BimesterResult } from '../../src/entity/bimester-result'
-import { CreateResult } from '../../src/services/create-result'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
 import { type Request, type Response } from 'express'
+import { CreateResultStub } from '../mocks/create-result-service-mock'
+import { type CreateResult } from '../../src/services/create-result'
+
+interface SutTypes {
+  service: CreateResult
+  sut: AddResultExpress
+}
+
+const makeSut = (): SutTypes => {
+  const entity = new BimesterResult()
+  const repo = new BimesterRepositoryStub()
+  const service = new CreateResultStub(entity, repo)
+  const sut = new AddResultExpress(service)
+  return {
+    service,
+    sut
+  }
+}
 
 describe('AddResultExpress Controller', () => {
   test('1. should calls next with the error if service throws', async () => {
     // System under test
-    const entity = new BimesterResult()
-    const repo = new BimesterRepositoryStub()
-    const service = new CreateResult(entity, repo)
+    const { service, sut } = makeSut()
     jest.spyOn(service, 'execute').mockImplementation(() => { throw new Error() })
-    const sut = new AddResultExpress(service)
+
     const bodyReq = {
-      bimester: 'PRIMEIRO',
-      discipline: 'Climatologia',
-      grade: 10
+      bimester: 'invalid_bimester',
+      discipline: 'invalid_discipline',
+      grade: 0
     }
+
     const mReq = {
       body: bodyReq
     } as unknown as Request
