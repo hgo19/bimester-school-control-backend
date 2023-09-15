@@ -22,7 +22,16 @@ describe('RemoveResult Service', () => {
     await expect(sut.execute('invalid_id')).rejects.toThrow()
   })
 
-  test('3. should returns true on success', async () => {
+  test("3. should throws doesn't delete a result in db", async () => {
+    // System under test
+    const repo = new BimesterRepositoryStub()
+    jest.spyOn(repo, 'delete').mockImplementation(async () => { return await new Promise(resolve => { resolve(false) }) })
+    const sut = new RemoveResult(repo)
+
+    await expect(sut.execute('2')).rejects.toThrow()
+  })
+
+  test('4. should returns true on success', async () => {
     // System under test
     const repo = new BimesterRepositoryStub()
     const sut = new RemoveResult(repo)
