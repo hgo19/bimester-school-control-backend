@@ -1,6 +1,4 @@
-import { type BiemonthlyResultInput } from '../../src/protocols/biemonthly-result-input'
-import { type BiemonthlyResultOutput } from '../../src/protocols/biemonthly-result-output'
-import { type BiemonthlyResultRepository } from '../../src/protocols/biemonthly-result-repository'
+import { type BiemonthlyResultInput, type BiemonthlyResultOutput, type BiemonthlyResultRepository } from '../../src/protocols/'
 
 export class BiemonthlyRepositoryStub implements BiemonthlyResultRepository {
   async create (input: BiemonthlyResultInput): Promise<BiemonthlyResultOutput> {

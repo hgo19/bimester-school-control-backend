@@ -1,8 +1,7 @@
 import { BiemonthlyResult } from '../../src/entity/biemonthly-result'
 import { CreateResult } from '../../src/services/create-result'
 import { BiemonthlyRepositoryStub } from '../mocks/biemonthly-result-repository-mock'
-import { type BiemonthlyResultRepository } from '../../src/protocols/biemonthly-result-repository'
-import { type BiemonthlyResultInput } from '../../src/protocols/biemonthly-result-input'
+import { type BiemonthlyResultRepository, type BiemonthlyResultInput } from '../../src/protocols/'
 
 interface SutTypes {
   repository: BiemonthlyResultRepository

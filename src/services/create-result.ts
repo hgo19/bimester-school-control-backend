@@ -1,6 +1,5 @@
 import { type BiemonthlyResult } from '../entity/biemonthly-result'
-import { type BiemonthlyResultInput } from '../protocols/biemonthly-result-input'
-import { type BiemonthlyResultRepository } from '../protocols/biemonthly-result-repository'
+import { type BiemonthlyResultInput, type BiemonthlyResultRepository } from '../protocols/'
 
 export class CreateResult {
   private readonly _entity: BiemonthlyResult
