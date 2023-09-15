@@ -1,4 +1,5 @@
 import { type BimesterResult } from '../entity/bimester-result'
+import { DisciplineAlreadyExistError } from '../exceptions/discipline-already-exist'
 import { type BimesterResultOutput, type BimesterResultInput, type BimesterResultRepository } from '../protocols/'
 
 export class CreateResult {
@@ -20,7 +21,7 @@ export class CreateResult {
     }
     const isThereAlready = await this._repository.isThereAlready(createdEntity.bimester, createdEntity.discipline)
     if (isThereAlready) {
-      throw new Error()
+      throw new DisciplineAlreadyExistError('There is already a discipline for this bimester in the database.')
     }
 
     return await this._repository.create(createdEntity)
