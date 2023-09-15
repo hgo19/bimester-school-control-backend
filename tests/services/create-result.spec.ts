@@ -39,7 +39,7 @@ describe('CreateResult Service', () => {
   test('2. should calls create method of BiemonthlyResult repository with right values', async () => {
     // System under test
     const { sut, repository } = makeSut()
-    const repositoryStubSpy = jest.spyOn(repository, 'create')
+    const repositoryCreateSpy = jest.spyOn(repository, 'create')
     const input: BiemonthlyResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Geografia',
@@ -48,6 +48,21 @@ describe('CreateResult Service', () => {
 
     await sut.execute(input)
 
-    expect(repositoryStubSpy).toHaveBeenCalledWith(input)
+    expect(repositoryCreateSpy).toHaveBeenCalledWith(input)
+  })
+
+  test('3. should throws if repository throws', async () => {
+    // System under test
+    const { sut, repository } = makeSut()
+    const repositoryCreateSpy = jest.spyOn(repository, 'create')
+    repositoryCreateSpy.mockImplementation(() => { throw new Error() })
+
+    const input: BiemonthlyResultInput = {
+      bimester: 'PRIMEIRO',
+      discipline: 'Geografia',
+      grade: 5
+    }
+
+    await expect(sut.execute(input)).rejects.toThrow()
   })
 })
