@@ -11,11 +11,16 @@ export class CreateResult {
   }
 
   async execute (input: BimesterResultInput): Promise<BimesterResultOutput> {
-    this._entity.create(input)
+    const bimesterToUpper = input.bimester.toUpperCase()
+    this._entity.create({ bimester: bimesterToUpper, discipline: input.discipline, grade: input.grade })
     const createdEntity = {
       bimester: this._entity.bimester,
       discipline: this._entity.discipline,
       grade: this._entity.grade
+    }
+    const isThereAlready = await this._repository.isThereAlready(createdEntity.bimester, createdEntity.discipline)
+    if (isThereAlready) {
+      throw new Error()
     }
 
     return await this._repository.create(createdEntity)
