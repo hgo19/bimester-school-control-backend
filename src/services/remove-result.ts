@@ -8,6 +8,9 @@ export class RemoveResult {
 
   async execute (id: string): Promise<boolean> {
     const isDeleted = await this._repository.delete(id)
+    if (!isDeleted) {
+      throw new Error()
+    }
     return isDeleted
   }
 }
