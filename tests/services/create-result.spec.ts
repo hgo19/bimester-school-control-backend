@@ -1,17 +1,17 @@
-import { BiemonthlyResult } from '../../src/entity/biemonthly-result'
+import { BimesterResult } from '../../src/entity/bimester-result'
 import { CreateResult } from '../../src/services/create-result'
-import { BiemonthlyRepositoryStub } from '../mocks/biemonthly-result-repository-mock'
-import { type BiemonthlyResultRepository, type BiemonthlyResultInput } from '../../src/protocols/'
+import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
+import { type BimesterResultRepository, type BimesterResultInput } from '../../src/protocols/'
 
 interface SutTypes {
-  repository: BiemonthlyResultRepository
-  entity: BiemonthlyResult
+  repository: BimesterResultRepository
+  entity: BimesterResult
   sut: CreateResult
 }
 
 const makeSut = (): SutTypes => {
-  const repository = new BiemonthlyRepositoryStub()
-  const entity = new BiemonthlyResult()
+  const repository = new BimesterRepositoryStub()
+  const entity = new BimesterResult()
   const sut = new CreateResult(entity, repository)
 
   return {
@@ -22,25 +22,25 @@ const makeSut = (): SutTypes => {
 }
 
 describe('CreateResult Service', () => {
-  test('1. should calls create method of BiemonthlyResult entity with right values', async () => {
+  test('1. should calls create method of BimesterResult entity with right values', async () => {
     // System under test
     const { sut, entity } = makeSut()
-    const createBiemonthlyResultSpy = jest.spyOn(entity, 'create')
-    const input: BiemonthlyResultInput = {
+    const createBimesterResultSpy = jest.spyOn(entity, 'create')
+    const input: BimesterResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Geografia',
       grade: 5
     }
 
     await sut.execute(input)
-    expect(createBiemonthlyResultSpy).toHaveBeenCalledWith(input)
+    expect(createBimesterResultSpy).toHaveBeenCalledWith(input)
   })
 
-  test('2. should calls create method of BiemonthlyResult repository with right values', async () => {
+  test('2. should calls create method of BimesterResult repository with right values', async () => {
     // System under test
     const { sut, repository } = makeSut()
     const repositoryCreateSpy = jest.spyOn(repository, 'create')
-    const input: BiemonthlyResultInput = {
+    const input: BimesterResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Geografia',
       grade: 5
@@ -57,7 +57,7 @@ describe('CreateResult Service', () => {
     const repositoryCreateSpy = jest.spyOn(repository, 'create')
     repositoryCreateSpy.mockImplementation(() => { throw new Error() })
 
-    const input: BiemonthlyResultInput = {
+    const input: BimesterResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Geografia',
       grade: 5
@@ -69,7 +69,7 @@ describe('CreateResult Service', () => {
   test('4. should return the right object on success', async () => {
     // System under test
     const { sut } = makeSut()
-    const input: BiemonthlyResultInput = {
+    const input: BimesterResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Geografia',
       grade: 5

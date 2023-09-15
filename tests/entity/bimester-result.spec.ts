@@ -1,12 +1,12 @@
-import { BiemonthlyResult } from '../../src/entity/biemonthly-result'
+import { BimesterResult } from '../../src/entity/bimester-result'
 import { InvalidParams } from '../../src/expections/invalid-param'
-import { type BiemonthlyResultInput } from '../../src/protocols/biemonthly-result-input'
+import { type BimesterResultInput } from '../../src/protocols/bimester-result-input'
 
-describe('BiemonthlyResult Entity', () => {
+describe('BimesterResult Entity', () => {
   test("1. should throw an error if the bimester input isn't right", () => {
     // System under test
-    const sut = new BiemonthlyResult()
-    const input: BiemonthlyResultInput = {
+    const sut = new BimesterResult()
+    const input: BimesterResultInput = {
       bimester: 'QUINTO',
       discipline: 'Geografia',
       grade: 0
@@ -17,8 +17,8 @@ describe('BiemonthlyResult Entity', () => {
 
   test("2. should throw an error if the discipline input isn't right", () => {
     // System under test
-    const sut = new BiemonthlyResult()
-    const input: BiemonthlyResultInput = {
+    const sut = new BimesterResult()
+    const input: BimesterResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Climatologia',
       grade: 10
@@ -29,8 +29,8 @@ describe('BiemonthlyResult Entity', () => {
 
   test("2. should throw an error if the discipline input isn't right", () => {
     // System under test
-    const sut = new BiemonthlyResult()
-    const input: BiemonthlyResultInput = {
+    const sut = new BimesterResult()
+    const input: BimesterResultInput = {
       bimester: 'PRIMEIRO',
       discipline: 'Geografia',
       grade: 15

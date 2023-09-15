@@ -1,7 +1,7 @@
-import { type BiemonthlyResultInput, type BiemonthlyResultOutput, type BiemonthlyResultRepository } from '../../src/protocols/'
+import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../../src/protocols/'
 
-export class BiemonthlyRepositoryStub implements BiemonthlyResultRepository {
-  async findOne (id: string): Promise<BiemonthlyResultOutput> {
+export class BimesterRepositoryStub implements BimesterResultRepository {
+  async findOne (id: string): Promise<BimesterResultOutput> {
     return await new Promise(resolve => {
       resolve({
         id,
@@ -13,7 +13,7 @@ export class BiemonthlyRepositoryStub implements BiemonthlyResultRepository {
     })
   }
 
-  async create (input: BiemonthlyResultInput): Promise<BiemonthlyResultOutput> {
+  async create (input: BimesterResultInput): Promise<BimesterResultOutput> {
     return await new Promise(resolve => {
       resolve({
         id: '1',

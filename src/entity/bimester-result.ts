@@ -1,7 +1,7 @@
 import { InvalidParams } from '../expections/invalid-param'
-import { type BiemonthlyResultInput } from '../protocols/biemonthly-result-input'
+import { type BimesterResultInput } from '../protocols'
 
-export class BiemonthlyResult {
+export class BimesterResult {
   private _bimester: string
   private _discipline: string
   private _grade: number
@@ -12,14 +12,14 @@ export class BiemonthlyResult {
     this._grade = 0
   }
 
-  public create (bimesterInfo: BiemonthlyResultInput): void {
+  public create (bimesterInfo: BimesterResultInput): void {
     this.validations(bimesterInfo)
     this._bimester = bimesterInfo.bimester
     this._discipline = bimesterInfo.discipline
     this._grade = bimesterInfo.grade
   }
 
-  public validations (bimesterInfo: BiemonthlyResultInput): void {
+  public validations (bimesterInfo: BimesterResultInput): void {
     const bimesters = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']
     const disciplines = ['Biologia', 'Artes', 'Geografia', 'Sociologia']
     const MIN_GRADE = 0
