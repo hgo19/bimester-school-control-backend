@@ -66,7 +66,22 @@ describe('CreateResult Service', () => {
     await expect(sut.execute(input)).rejects.toThrow()
   })
 
-  test('4. should return the right object on success', async () => {
+  test('4. should throws if in one bimester has already a discipline', async () => {
+    // System under test
+    const { sut, repository } = makeSut()
+    const isThereAlreadySpy = jest.spyOn(repository, 'isThereAlready')
+    isThereAlreadySpy.mockImplementation(async () => { return await new Promise(resolve => { resolve(true) }) })
+
+    const input: BimesterResultInput = {
+      bimester: 'PRIMEIRO',
+      discipline: 'Geografia',
+      grade: 5
+    }
+
+    await expect(sut.execute(input)).rejects.toThrow()
+  })
+
+  test('5. should return the right object on success', async () => {
     // System under test
     const { sut } = makeSut()
     const input: BimesterResultInput = {

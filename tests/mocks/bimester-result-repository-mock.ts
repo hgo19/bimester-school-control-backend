@@ -1,6 +1,10 @@
 import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../../src/protocols/'
 
 export class BimesterRepositoryStub implements BimesterResultRepository {
+  async isThereAlready (bimester: string, discipline: string): Promise<boolean> {
+    return false
+  }
+
   async findOne (id: string): Promise<BimesterResultOutput> {
     return await new Promise(resolve => {
       resolve({
