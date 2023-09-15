@@ -1,5 +1,6 @@
 import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../protocols'
 import { type ResultSetHeader, type Pool, type RowDataPacket } from 'mysql2/promise'
+import { NotFoundError } from '../utils/http-erros'
 
 interface BimesterResultInDb {
   id: number
@@ -53,6 +54,9 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
   async findOne (id: number): Promise<BimesterResultOutput> {
     const query = 'SELECT * FROM School.bimester_result AS b WHERE b.id = ?'
     const [[row]] = await this.persistence.execute<RowDataPacket[][] & BimesterResultInDb[]>(query, [id])
+    if (row === undefined) {
+      throw new NotFoundError("Can't find result in db")
+    }
     return {
       id: row.id.toString(),
       bimester: row.bimestere,
@@ -64,12 +68,13 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
   }
 
   async delete (id: string): Promise<boolean> {
+    await this.findOne(Number(id))
     const query = 'DELETE FROM School.bimester_result WHERE id = ?'
     const idNumber = Number(id)
     const [result] = await this.persistence.execute<ResultSetHeader>(query, [idNumber])
     if (result.affectedRows > 0) {
-      return false
+      return true
     }
-    return true
+    return false
   }
 }
