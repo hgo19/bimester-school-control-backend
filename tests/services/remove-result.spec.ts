@@ -12,4 +12,13 @@ describe('RemoveResult Service', () => {
 
     expect(delteSpy).toHaveBeenCalledWith('1')
   })
+
+  test('2. should throws if repository throws', async () => {
+    // System under test
+    const repo = new BimesterRepositoryStub()
+    const sut = new RemoveResult(repo)
+    jest.spyOn(repo, 'delete').mockImplementation(() => { throw new Error() })
+
+    await expect(sut.execute('invalid_id')).rejects.toThrow()
+  })
 })
