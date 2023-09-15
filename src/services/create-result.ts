@@ -1,5 +1,5 @@
 import { type BiemonthlyResult } from '../entity/biemonthly-result'
-import { type BiemonthlyResultInput, type BiemonthlyResultRepository } from '../protocols/'
+import { type BiemonthlyResultOutput, type BiemonthlyResultInput, type BiemonthlyResultRepository } from '../protocols/'
 
 export class CreateResult {
   private readonly _entity: BiemonthlyResult
@@ -10,7 +10,7 @@ export class CreateResult {
     this._repository = repository
   }
 
-  async execute (input: BiemonthlyResultInput): Promise<void> {
+  async execute (input: BiemonthlyResultInput): Promise<BiemonthlyResultOutput> {
     this._entity.create(input)
     const createdEntity = {
       bimester: this._entity.bimester,
@@ -18,6 +18,6 @@ export class CreateResult {
       grade: this._entity.grade
     }
 
-    await this._repository.create(createdEntity)
+    return await this._repository.create(createdEntity)
   }
 }
