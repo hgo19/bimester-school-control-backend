@@ -67,7 +67,7 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
     const query = 'DELETE FROM School.bimester_result WHERE id = ?'
     const idNumber = Number(id)
     const [result] = await this.persistence.execute<ResultSetHeader>(query, [idNumber])
-    if (!result.affectedRows > 0) {
+    if (result.affectedRows > 0) {
       return false
     }
     return true
