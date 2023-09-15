@@ -1,16 +1,16 @@
 import { GetAllResultsExpress } from '../../src/controllers/get-all-results-express'
-import { ListAllResults } from '../../src/services/list-all-results'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
 import { type Request, type Response } from 'express'
+import { ListAllResultStub } from '../mocks/list-all-results-service-mock'
 
 interface SutTypes {
-  service: ListAllResults
+  service: ListAllResultStub
   sut: GetAllResultsExpress
 }
 
 const makeSut = (): SutTypes => {
   const repo = new BimesterRepositoryStub()
-  const service = new ListAllResults(repo)
+  const service = new ListAllResultStub(repo)
   const sut = new GetAllResultsExpress(service)
   return {
     service,

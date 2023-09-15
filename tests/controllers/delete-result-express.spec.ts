@@ -1,16 +1,16 @@
 import { DeleteResultExpress } from '../../src/controllers/delete-result-express'
-import { RemoveResult } from '../../src/services/remove-result'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
 import { type Request, type Response } from 'express'
+import { RemoveResultStub } from '../mocks/remove-result-service-mock'
 
 interface SutTypes {
-  service: RemoveResult
+  service: RemoveResultStub
   sut: DeleteResultExpress
 }
 
 const makeSut = (): SutTypes => {
   const repo = new BimesterRepositoryStub()
-  const service = new RemoveResult(repo)
+  const service = new RemoveResultStub(repo)
   const sut = new DeleteResultExpress(service)
   return {
     service,
