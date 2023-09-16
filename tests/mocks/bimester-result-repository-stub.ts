@@ -20,7 +20,7 @@ export class BimesterRepositoryStub implements BimesterResultRepository {
     return false
   }
 
-  async findOne (id: number): Promise<BimesterResultOutput> {
+  async findOne (id: number): Promise<BimesterResultOutput | null> {
     return await new Promise(resolve => {
       resolve({
         id: id.toString(),

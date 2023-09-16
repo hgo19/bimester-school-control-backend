@@ -1,6 +1,5 @@
 import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../interfaces'
 import { type ResultSetHeader, type Pool, type RowDataPacket } from 'mysql2/promise'
-import { NotFoundError } from '../utils/http-erros'
 
 interface BimesterResultInDb {
   id: number
@@ -48,17 +47,12 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
     const params = [bimester, discipline, grade]
     const [{ insertId }] = await this.persistence.execute<ResultSetHeader>(query, params)
     const findCreated = await this.findOne(insertId)
-    return findCreated
+    return findCreated as BimesterResultOutput
   }
 
-  async findOne (id: number): Promise<BimesterResultOutput> {
+  async findOne (id: number): Promise<BimesterResultOutput | null> {
     const query = 'SELECT * FROM School.bimester_result AS b WHERE b.id = ?'
     const [[row]] = await this.persistence.execute<RowDataPacket[][] & BimesterResultInDb[]>(query, [id])
-
-    // JOGAR PARA O SERVICE DAQUI PARA BAIXO
-    if (row === undefined) {
-      throw new NotFoundError("Can't find result in db")
-    }
     return {
       id: row.id.toString(),
       bimester: row.bimestre,
