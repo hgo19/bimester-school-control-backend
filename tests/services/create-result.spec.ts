@@ -63,8 +63,8 @@ describe('CreateResult Service', () => {
   test('4. should throws if in one bimester has already a discipline', async () => {
     // System under test
     const { sut, repository } = makeSut()
-    const isThereAlreadySpy = jest.spyOn(repository, 'isThereAlready')
-    isThereAlreadySpy.mockImplementation(async () => { return await new Promise(resolve => { resolve(true) }) })
+    const hasBimesterRegisteredSpy = jest.spyOn(repository, 'hasBimesterRegistered')
+    hasBimesterRegisteredSpy.mockImplementation(async () => { return await new Promise(resolve => { resolve(true) }) })
 
     await expect(sut.execute(input)).rejects.toThrow()
   })
