@@ -6,11 +6,11 @@ import { BimesterResultMySQLRepository } from '../repositories/bimester-result-m
 import connection from '../database/connection'
 
 import { CreateResult } from '../services/create-result'
-import { ListAllResults } from '../services/list-all-results'
+import { ListAllResults } from '../services/list-by-bimester'
 import { RemoveResult } from '../services/remove-result'
 
 import { AddResultExpress } from '../controllers/add-result-express'
-import { GetAllResultsExpress } from '../controllers/get-all-results-express'
+import { GetAllResultsExpress } from '../controllers/get-by-bimester-result-express'
 import { DeleteResultExpress } from '../controllers/delete-result-express'
 
 import { inputValidations } from '../middlewares/validations'
