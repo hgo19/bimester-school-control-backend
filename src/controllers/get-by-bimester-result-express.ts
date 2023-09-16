@@ -1,7 +1,7 @@
 import { type NextFunction, type Request, type Response } from 'express'
 import { type ListByBimester } from '../services/list-by-bimester'
 
-export class GetAllResultsExpress {
+export class GetByBimesterExpress {
   private readonly _service: ListByBimester
   constructor (service: ListByBimester) {
     this._service = service

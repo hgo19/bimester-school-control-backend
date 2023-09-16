@@ -11,9 +11,9 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
     this._mapper = mapper
   }
 
-  async getAll (): Promise<BimesterResultOutput[]> {
-    const query = 'SELECT * FROM School.bimester_result'
-    const [rows] = await this._persistence.execute<RowDataPacket[] & BimesterResultInDb[]>(query)
+  async getByBimester (bimester: string): Promise<BimesterResultOutput[]> {
+    const query = 'SELECT * FROM School.bimester_result WHERE bimestre = ?'
+    const [rows] = await this._persistence.execute<RowDataPacket[] & BimesterResultInDb[]>(query, [bimester])
     const rowsTreatment = rows.map((e) => {
       const { id, bimestre, disciplina, nota, criadoEm, atualizadoEm } = e
       return this._mapper.toDomain({ id, bimestre, disciplina, nota, criadoEm, atualizadoEm })
