@@ -6,8 +6,7 @@ export class RemoveResult {
     this._repository = repository
   }
 
-  async execute (id: string): Promise<boolean> {
-    const isDeleted = await this._repository.delete(id)
-    return isDeleted
+  async execute (id: string): Promise<void> {
+    await this._repository.delete(id)
   }
 }
