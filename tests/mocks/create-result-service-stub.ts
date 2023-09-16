@@ -9,7 +9,8 @@ export class CreateResultStub extends CreateResult {
         bimester: 'PRIMEIRO',
         discipline: 'Geografia',
         grade: 5,
-        createdAt: '2023-09-14 10:30:00'
+        createdAt: '2023-09-14 10:30:00',
+        updatedAt: '2023-09-14 10:30:00'
       })
     })
   }

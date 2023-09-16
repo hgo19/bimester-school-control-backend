@@ -10,16 +10,7 @@ export class GetAllResultsExpress {
   execute = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
       const listOfResults = await this._service.execute()
-      const result = listOfResults.map((e) => ({
-        id: e.id,
-        bimestre: e.bimester,
-        disciplina: e.discipline,
-        nota: e.grade,
-        criadoEm: e.createdAt,
-        atualizadoEm: e.updatedAt
-      }))
-
-      return res.status(200).json(result)
+      return res.status(200).json(listOfResults)
     } catch (error) {
       next(error)
     }

@@ -11,16 +11,7 @@ export class AddResultExpress {
     try {
       const { bimester, discipline, grade } = req.body
       const createdResult = await this._service.execute({ bimester, discipline, grade })
-      const result = {
-        id: createdResult.id,
-        bimestre: createdResult.bimester,
-        disciplina: createdResult.discipline,
-        nota: createdResult.grade,
-        criadoEm: createdResult.createdAt,
-        atualizadoEm: createdResult.updatedAt
-      }
-
-      return res.status(201).json(result)
+      return res.status(201).json(createdResult)
     } catch (error) {
       next(error)
     }
