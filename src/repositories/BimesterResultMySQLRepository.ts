@@ -4,7 +4,7 @@ import { NotFoundError } from '../utils/http-erros'
 
 interface BimesterResultInDb {
   id: number
-  bimestere: string
+  bimestre: string
   disciplina: string
   nota: number
   criadoEm: string
@@ -54,12 +54,14 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
   async findOne (id: number): Promise<BimesterResultOutput> {
     const query = 'SELECT * FROM School.bimester_result AS b WHERE b.id = ?'
     const [[row]] = await this.persistence.execute<RowDataPacket[][] & BimesterResultInDb[]>(query, [id])
+
+    // JOGAR PARA O SERVICE DAQUI PARA BAIXO
     if (row === undefined) {
       throw new NotFoundError("Can't find result in db")
     }
     return {
       id: row.id.toString(),
-      bimester: row.bimestere,
+      bimester: row.bimestre,
       discipline: row.disciplina,
       grade: row.nota,
       createdAt: row.criadoEm,
@@ -67,14 +69,10 @@ export class BimesterResultMySQLRepository implements BimesterResultRepository {
     }
   }
 
-  async delete (id: string): Promise<boolean> {
+  async delete (id: string): Promise<void> {
     await this.findOne(Number(id))
     const query = 'DELETE FROM School.bimester_result WHERE id = ?'
     const idNumber = Number(id)
-    const [result] = await this.persistence.execute<ResultSetHeader>(query, [idNumber])
-    if (result.affectedRows > 0) {
-      return true
-    }
-    return false
+    await this.persistence.execute<ResultSetHeader>(query, [idNumber])
   }
 }

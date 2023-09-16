@@ -5,5 +5,5 @@ export interface BimesterResultRepository {
   findOne: (id: number) => Promise<BimesterResultOutput>
   hasBimesterRegistered: (bimester: string, discipline: string) => Promise<boolean>
   getAll: () => Promise<BimesterResultOutput[]>
-  delete: (id: string) => Promise<boolean>
+  delete: (id: string) => Promise<void>
 }
