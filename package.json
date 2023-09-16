@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:coverage": "jest --coverage",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
     "db-create": "ts-node src/database/create-mysql-db/runSqlScript.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",

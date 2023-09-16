@@ -19,8 +19,8 @@ export class CreateResult {
       discipline: this._entity.discipline,
       grade: this._entity.grade
     }
-    const isThereAlready = await this._repository.isThereAlready(createdEntity.bimester, createdEntity.discipline)
-    if (isThereAlready) {
+    const hasBimesterRegistered = await this._repository.hasBimesterRegistered(createdEntity.bimester, createdEntity.discipline)
+    if (hasBimesterRegistered) {
       throw new DisciplineAlreadyExistError('There is already a discipline for this bimester in the database.')
     }
 

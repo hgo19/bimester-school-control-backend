@@ -20,7 +20,7 @@ export class BimesterRepositoryStub implements BimesterResultRepository {
     })
   }
 
-  async isThereAlready (bimester: string, discipline: string): Promise<boolean> {
+  async hasBimesterRegistered (bimester: string, discipline: string): Promise<boolean> {
     return false
   }
 
