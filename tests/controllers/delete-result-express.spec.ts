@@ -29,7 +29,7 @@ describe('DeleteResultExpress Controller', () => {
     const serviceSpy = jest.spyOn(service, 'execute')
 
     const mReq = {
-      body: {
+      params: {
         id: '1'
       }
     } as unknown as Request
@@ -51,7 +51,7 @@ describe('DeleteResultExpress Controller', () => {
     jest.spyOn(service, 'execute').mockImplementation(() => { throw new Error() })
 
     const mReq = {
-      body: {}
+      params: {}
     } as unknown as Request
     const mRes = {
       status: jest.fn(() => mRes),
@@ -68,7 +68,7 @@ describe('DeleteResultExpress Controller', () => {
     const { sut } = makeSut()
 
     const mReq = {
-      body: {
+      params: {
         id: '1'
       }
     } as unknown as Request
