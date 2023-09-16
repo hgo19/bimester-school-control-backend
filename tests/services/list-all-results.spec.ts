@@ -1,5 +1,5 @@
 import { ListAllResults } from '../../src/services/list-all-results'
-import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
+import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 
 describe('ListAllResults Service', () => {
   beforeEach(() => {

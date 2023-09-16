@@ -1,7 +1,7 @@
 import { GetAllResultsExpress } from '../../src/controllers/get-all-results-express'
-import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
+import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 import { type Request, type Response } from 'express'
-import { ListAllResultStub } from '../mocks/list-all-results-service-mock'
+import { ListAllResultStub } from '../mocks/list-all-results-service-stub'
 
 interface SutTypes {
   service: ListAllResultStub

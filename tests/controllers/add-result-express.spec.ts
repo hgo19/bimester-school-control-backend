@@ -1,8 +1,8 @@
 import { AddResultExpress } from '../../src/controllers/add-result-express'
 import { BimesterResult } from '../../src/entity/bimester-result'
-import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
+import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 import { type Request, type Response } from 'express'
-import { CreateResultStub } from '../mocks/create-result-service-mock'
+import { CreateResultStub } from '../mocks/create-result-service-stub'
 import { type CreateResult } from '../../src/services/create-result'
 
 interface SutTypes {

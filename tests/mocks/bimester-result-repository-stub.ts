@@ -1,4 +1,4 @@
-import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../../src/interfaces/'
+import { type BimesterResultInput, type BimesterResultOutput, type BimesterResultRepository } from '../../src/interfaces'
 
 export class BimesterRepositoryStub implements BimesterResultRepository {
   async delete (id: string): Promise<void> { }

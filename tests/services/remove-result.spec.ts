@@ -1,5 +1,5 @@
 import { RemoveResult } from '../../src/services/remove-result'
-import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
+import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 
 describe('RemoveResult Service', () => {
   test('1. should calls repository with the right value', async () => {

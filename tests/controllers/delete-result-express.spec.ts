@@ -1,7 +1,7 @@
 import { DeleteResultExpress } from '../../src/controllers/delete-result-express'
-import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-mock'
+import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 import { type Request, type Response } from 'express'
-import { RemoveResultStub } from '../mocks/remove-result-service-mock'
+import { RemoveResultStub } from '../mocks/remove-result-service-stub'
 
 interface SutTypes {
   service: RemoveResultStub
