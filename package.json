@@ -6,7 +6,7 @@
   "scripts": {
     "test:coverage": "jest --coverage",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
-    "db-create": "ts-node src/database/create-mysql-db/runSqlScript.ts",
+    "db-create": "ts-node src/database/create-mysql-db/run-sql-script.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:unit": "npm test -- --watch -c jest-config-unit.cjs",
     "test:verbose": "jest --watch"

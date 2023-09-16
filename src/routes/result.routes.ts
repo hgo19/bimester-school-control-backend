@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 import { BimesterResult } from '../entity/bimester-result'
 
-import { BimesterResultMySQLRepository } from '../repositories/BimesterResultMySQLRepository'
+import { BimesterResultMySQLRepository } from '../repositories/bimester-result-mysql-repository'
 import connection from '../database/connection'
 
 import { CreateResult } from '../services/create-result'
