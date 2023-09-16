@@ -14,11 +14,13 @@ import { GetAllResultsExpress } from '../controllers/get-all-results-express'
 import { DeleteResultExpress } from '../controllers/delete-result-express'
 
 import { inputValidations } from '../middlewares/validations'
+import { BimesterResultMapper } from '../mapper/bimester-result-mapper'
 
 const resultsRoutes = Router()
 
 const bimesterEntity = new BimesterResult()
-const bimesterRepository = new BimesterResultMySQLRepository(connection)
+const bimesterResultMapper = new BimesterResultMapper()
+const bimesterRepository = new BimesterResultMySQLRepository(connection, bimesterResultMapper)
 
 const createResultService = new CreateResult(bimesterEntity, bimesterRepository)
 const addResultController = new AddResultExpress(createResultService)
