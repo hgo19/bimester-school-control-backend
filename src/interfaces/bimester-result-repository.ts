@@ -4,6 +4,6 @@ export interface BimesterResultRepository {
   create: (input: BimesterResultInput) => Promise<BimesterResultOutput>
   findOne: (id: number) => Promise<BimesterResultOutput | null>
   hasBimesterRegistered: (bimester: string, discipline: string) => Promise<boolean>
-  getAll: () => Promise<BimesterResultOutput[]>
+  getByBimester: (bimester: string) => Promise<BimesterResultOutput[]>
   delete: (id: string) => Promise<void>
 }

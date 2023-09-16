@@ -1,7 +1,7 @@
-import { ListAllResults } from '../../src/services/list-all-results'
+import { ListByBimester } from '../../src/services/list-by-bimester'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 
-describe('ListAllResults Service', () => {
+describe('ListByBimester Service', () => {
   beforeEach(() => {
     jest.resetAllMocks() // Redefine todos os mocks antes de cada teste
   })
@@ -9,12 +9,13 @@ describe('ListAllResults Service', () => {
   test('1. should calls the repository getAll method and returns all list of results', async () => {
     // System under test
     const repository = new BimesterRepositoryStub()
-    const sut = new ListAllResults(repository)
-    const getAllSpy = jest.spyOn(repository, 'getAll')
+    const sut = new ListByBimester(repository)
+    const getByBimester = jest.spyOn(repository, 'getByBimester')
+    const bimester = 'PRIMEIRO'
 
-    const response = await sut.execute()
+    const response = await sut.execute(bimester)
 
-    expect(getAllSpy).toHaveBeenCalled()
+    expect(getByBimester).toHaveBeenCalledWith(bimester)
     expect(response).toEqual([{
       id: '1',
       bimester: 'PRIMEIRO',

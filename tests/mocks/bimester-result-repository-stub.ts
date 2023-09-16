@@ -3,7 +3,7 @@ import { type BimesterResultInput, type BimesterResultOutput, type BimesterResul
 export class BimesterRepositoryStub implements BimesterResultRepository {
   async delete (id: string): Promise<void> { }
 
-  async getAll (): Promise<BimesterResultOutput[]> {
+  async getByBimester (bimester: string): Promise<BimesterResultOutput[]> {
     return await new Promise(resolve => {
       resolve([{
         id: '1',
