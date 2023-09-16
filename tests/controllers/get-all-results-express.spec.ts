@@ -57,11 +57,11 @@ describe('GetAllResultsExpress Controller', () => {
 
     const expectedResponse = [{
       id: '1',
-      bimestre: 'PRIMEIRO',
-      disciplina: 'Geografia',
-      nota: 5,
-      criadoEm: '2023-09-14 10:30:00',
-      atualizadoEm: '2023-09-14 10:30:00'
+      bimester: 'PRIMEIRO',
+      discipline: 'Geografia',
+      grade: 5,
+      createdAt: '2023-09-14 10:30:00',
+      updatedAt: '2023-09-14 10:30:00'
     }]
 
     await sut.execute(mReq, mRes, mNext)
