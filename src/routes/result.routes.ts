@@ -1,14 +1,19 @@
 import { Router } from 'express'
-import { AddResultExpress } from '../controllers/add-result-express'
-import { CreateResult } from '../services/create-result'
+
 import { BimesterResult } from '../entity/bimester-result'
+
 import { BimesterResultMySQLRepository } from '../repositories/BimesterResultMySQLRepository'
 import connection from '../database/connection'
-import { inputValidations } from '../middlewares/validations'
+
+import { CreateResult } from '../services/create-result'
 import { ListAllResults } from '../services/list-all-results'
-import { GetAllResultsExpress } from '../controllers/get-all-results-express'
 import { RemoveResult } from '../services/remove-result'
+
+import { AddResultExpress } from '../controllers/add-result-express'
+import { GetAllResultsExpress } from '../controllers/get-all-results-express'
 import { DeleteResultExpress } from '../controllers/delete-result-express'
+
+import { inputValidations } from '../middlewares/validations'
 
 const resultsRoutes = Router()
 
