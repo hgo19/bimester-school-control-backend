@@ -9,7 +9,7 @@ export class DeleteResultExpress {
 
   execute = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-      const { id } = req.body
+      const { id } = req.params
       await this._service.execute(id)
       res.status(204).json({ message: 'result deleted.' })
     } catch (error) {
