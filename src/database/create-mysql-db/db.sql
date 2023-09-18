@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS School;
 CREATE DATABASE School;
 USE School;
 
@@ -10,7 +9,3 @@ CREATE TABLE bimester_result(
   criadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   atualizadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
-INSERT INTO bimester_result(bimestre, disciplina, nota)
-    VALUES
-        ('PRIMEIRO', 'Geografia', 9);
