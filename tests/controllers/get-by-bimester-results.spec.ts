@@ -29,7 +29,7 @@ describe('GetByBimesterExpress Controller', () => {
     jest.spyOn(service, 'execute').mockImplementation(() => { throw new Error() })
 
     const mReq = {
-      body: {}
+      params: {}
     } as unknown as Request
     const mRes = {
       status: jest.fn(() => mRes),
@@ -46,7 +46,9 @@ describe('GetByBimesterExpress Controller', () => {
     const { sut } = makeSut()
 
     const mReq = {
-      body: {}
+      params: {
+        bimester: 'PRIMEIRO'
+      }
     } as unknown as Request
 
     const mRes = {

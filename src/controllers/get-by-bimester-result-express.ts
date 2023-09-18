@@ -9,7 +9,7 @@ export class GetByBimesterExpress {
 
   execute = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-      const { bimester } = req.body
+      const { bimester } = req.params
       const listOfResults = await this._service.execute(bimester)
       return res.status(200).json(listOfResults)
     } catch (error) {

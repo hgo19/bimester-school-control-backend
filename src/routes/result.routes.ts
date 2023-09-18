@@ -31,7 +31,7 @@ const getByBimesterService = new GetByBimesterExpress(listByBimesterService)
 const removeService = new RemoveResult(bimesterRepository)
 const deleteResultController = new DeleteResultExpress(removeService)
 
-resultsRoutes.get('/', getByBimesterService.execute)
+resultsRoutes.get('/:bimester', getByBimesterService.execute)
 
 resultsRoutes.post('/', inputValidations, addResultController.execute)
 
