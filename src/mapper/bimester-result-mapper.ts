@@ -2,7 +2,11 @@ import { type BimesterResultOutput } from '../interfaces'
 import { type BimesterResultInDb } from '../interfaces/bimester-result-in-db'
 
 export class BimesterResultMapper {
-  public toDomain (entity: BimesterResultInDb): BimesterResultOutput {
+  public toDomain (entity: BimesterResultInDb): BimesterResultOutput | null {
+    if (entity === undefined) {
+      return null
+    }
+
     return {
       id: entity.id.toString(),
       bimester: entity.bimestre,
