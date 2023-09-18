@@ -41,6 +41,12 @@ MYSQL_USER=root
 MYSQL_PASSWORD=1234
 DB_PORT=3367
 ```
+5. Após isso, rode então o comando abaixo:
+```
+npm start
+```
+
+E pronto, sua aplicação backend está rodando na porta escolhida no arquivo .env. Faça suas requisições!
 
 ### Rotas da Aplicação
 A aplicação realiza sua requisições através da URL escolhida com a porta cadastrada no arquivo .env (ou a 3001 por padrão) + `/results`. A partir disso é possível fazer a requisição através de 3 rotas, as quais são:
@@ -99,3 +105,7 @@ O Corpo da requisição deve possuir exatamente esses atributos. Algumas regras 
 
  #### DELETE - `delete/results/:id`
  Na rota para deletar um resultado cadastrado no banco de dados, é necessário que seja passado um 'id' como params da requisição. Esse id precisa ser válido e de um objeto existente no banco de dados. A rota não terá retorno, é apenas enviado o status `204` em caso de sucesso.
+
+
+ ### E agora?
+ A aplicação busca alimentar uma outra aplicação frontend, caso queira rodar as duas e vê-las funcionando em conjunto. [CLIQUE AQUI!](https://www.linkedin.com/in/hugo-leop/)
