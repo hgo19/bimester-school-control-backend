@@ -25,12 +25,14 @@ describe('ListAllResults Service', () => {
     }])
   })
 
-  test('2. should throws an error if none of entities where found in db', async () => {
+  test('2. should returns an empty array if none of results were found in db', async () => {
     // System under test
     const repository = new BimesterRepositoryStub()
     const sut = new ListAllResults(repository)
     jest.spyOn(repository, 'getAllResults').mockImplementation(async () => { return await new Promise(resolve => { resolve([]) }) })
 
-    await expect(sut.execute()).rejects.toThrow()
+    const response = await sut.execute()
+
+    expect(response).toEqual([])
   })
 })
