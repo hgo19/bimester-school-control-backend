@@ -108,5 +108,16 @@ O Corpo da requisição deve possuir exatamente esses atributos. Algumas regras 
  Na rota para deletar um resultado cadastrado no banco de dados, é necessário que seja passado um 'id' como params da requisição. Esse id precisa ser válido e de um objeto existente no banco de dados. A rota não terá retorno, é apenas enviado o status `204` em caso de sucesso.
 
 
+### Pontos Finais
+Por fim, é importante também ressaltar a estrutura da entidade no banco de dados, a qual ficou salva da seguinte maneira:
+```
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  bimestre VARCHAR(255) NOT NULL,
+  disciplina VARCHAR(255) NOT NULL,
+  nota INT NOT NULL,
+  criadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  atualizadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+```
+
  ### E agora?
  A aplicação busca alimentar uma outra aplicação frontend, caso queira rodar as duas e vê-las funcionando em conjunto. [CLIQUE AQUI!](https://www.linkedin.com/in/hugo-leop/)
