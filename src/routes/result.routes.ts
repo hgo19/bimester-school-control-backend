@@ -6,11 +6,11 @@ import { BimesterResultMySQLRepository } from '../repositories/bimester-result-m
 import connection from '../database/connection'
 
 import { CreateResult } from '../services/create-result'
-import { ListByBimester } from '../services/list-by-bimester'
+import { ListAllResults } from '../services/list-all-results'
 import { RemoveResult } from '../services/remove-result'
 
 import { AddResultExpress } from '../controllers/add-result-express'
-import { GetByBimesterExpress } from '../controllers/get-by-bimester-result-express'
+import { GetAllResults } from '../controllers/get-all-results-express'
 import { DeleteResultExpress } from '../controllers/delete-result-express'
 
 import { inputValidations } from '../middlewares/validations'
@@ -25,13 +25,13 @@ const bimesterRepository = new BimesterResultMySQLRepository(connection, bimeste
 const createResultService = new CreateResult(bimesterEntity, bimesterRepository)
 const addResultController = new AddResultExpress(createResultService)
 
-const listByBimesterService = new ListByBimester(bimesterRepository)
-const getByBimesterService = new GetByBimesterExpress(listByBimesterService)
+const listAllResults = new ListAllResults(bimesterRepository)
+const getAllResults = new GetAllResults(listAllResults)
 
 const removeService = new RemoveResult(bimesterRepository)
 const deleteResultController = new DeleteResultExpress(removeService)
 
-resultsRoutes.get('/:bimester', getByBimesterService.execute)
+resultsRoutes.get('/', getAllResults.execute)
 
 resultsRoutes.post('/', inputValidations, addResultController.execute)
 

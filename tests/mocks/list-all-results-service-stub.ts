@@ -1,7 +1,7 @@
 import { type BimesterResultOutput } from '../../src/interfaces'
-import { ListByBimester } from '../../src/services/list-by-bimester'
+import { ListAllResults } from '../../src/services/list-all-results'
 
-export class ListAllResultStub extends ListByBimester {
+export class ListAllResultStub extends ListAllResults {
   async execute (): Promise<BimesterResultOutput[]> {
     return await new Promise(resolve => {
       resolve([{

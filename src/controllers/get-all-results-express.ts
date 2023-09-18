@@ -1,16 +1,15 @@
 import { type NextFunction, type Request, type Response } from 'express'
-import { type ListByBimester } from '../services/list-by-bimester'
+import { type ListAllResults } from '../services/list-all-results'
 
-export class GetByBimesterExpress {
-  private readonly _service: ListByBimester
-  constructor (service: ListByBimester) {
+export class GetAllResults {
+  private readonly _service: ListAllResults
+  constructor (service: ListAllResults) {
     this._service = service
   }
 
   execute = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-      const { bimester } = req.params
-      const listOfResults = await this._service.execute(bimester)
+      const listOfResults = await this._service.execute()
       return res.status(200).json(listOfResults)
     } catch (error) {
       next(error)
