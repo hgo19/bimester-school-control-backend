@@ -1,7 +1,7 @@
-import { ListByBimester } from '../../src/services/list-by-bimester'
+import { ListAllResults } from '../../src/services/list-all-results'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 
-describe('ListByBimester Service', () => {
+describe('ListAllResults Service', () => {
   beforeEach(() => {
     jest.resetAllMocks() // Redefine todos os mocks antes de cada teste
   })
@@ -9,13 +9,12 @@ describe('ListByBimester Service', () => {
   test('1. should calls the repository getAll method and returns all list of results', async () => {
     // System under test
     const repository = new BimesterRepositoryStub()
-    const sut = new ListByBimester(repository)
-    const getByBimester = jest.spyOn(repository, 'getByBimester')
-    const bimester = 'PRIMEIRO'
+    const sut = new ListAllResults(repository)
+    const getAllResults = jest.spyOn(repository, 'getAllResults')
 
-    const response = await sut.execute(bimester)
+    const response = await sut.execute()
 
-    expect(getByBimester).toHaveBeenCalledWith(bimester)
+    expect(getAllResults).toHaveBeenCalled()
     expect(response).toEqual([{
       id: '1',
       bimester: 'PRIMEIRO',
@@ -29,10 +28,9 @@ describe('ListByBimester Service', () => {
   test('2. should throws an error if none of entities where found in db', async () => {
     // System under test
     const repository = new BimesterRepositoryStub()
-    const sut = new ListByBimester(repository)
-    jest.spyOn(repository, 'getByBimester').mockImplementation(async () => { return await new Promise(resolve => { resolve(null) }) })
-    const bimester = 'invalid_bimester'
+    const sut = new ListAllResults(repository)
+    jest.spyOn(repository, 'getAllResults').mockImplementation(async () => { return await new Promise(resolve => { resolve([]) }) })
 
-    await expect(sut.execute(bimester)).rejects.toThrow()
+    await expect(sut.execute()).rejects.toThrow()
   })
 })

@@ -1,24 +1,24 @@
-import { GetByBimesterExpress } from '../../src/controllers/get-by-bimester-result-express'
+import { GetAllResults } from '../../src/controllers/get-all-results-express'
 import { BimesterRepositoryStub } from '../mocks/bimester-result-repository-stub'
 import { type Request, type Response } from 'express'
-import { ListAllResultStub } from '../mocks/list-by-bimester-service-stub'
+import { ListAllResultStub } from '../mocks/list-all-results-service-stub'
 
 interface SutTypes {
   service: ListAllResultStub
-  sut: GetByBimesterExpress
+  sut: GetAllResults
 }
 
 const makeSut = (): SutTypes => {
   const repo = new BimesterRepositoryStub()
   const service = new ListAllResultStub(repo)
-  const sut = new GetByBimesterExpress(service)
+  const sut = new GetAllResults(service)
   return {
     service,
     sut
   }
 }
 
-describe('GetByBimesterExpress Controller', () => {
+describe('GetAllResults Controller', () => {
   beforeEach(() => {
     jest.resetAllMocks() // Redefine todos os mocks antes de cada teste
   })
