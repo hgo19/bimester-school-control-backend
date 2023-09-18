@@ -16,6 +16,7 @@ Para essa aplicação foram utilizadas as seguintes tecnologias:
 
 ### Conceitos Aplicados
 Além das tecnologias utilizadas, a aplicação busca a implementação de alguns conceitos da programação. Como POO, SOLID, Design Patterns e uma arquitetura limpa. A arquitetura limpa não se divide em camadas, devido a simplicidade da aplicação, porém busca desacoplar o máximo as regras de negócio de tecnologias exteriores, que podem vir a ser mudadas em um futuro.
+Foi também desenvolvida através do conceito de TDD, tendo então coverage de 100% dos casos de uso, controllers e entidade. Para ver melhor você pode rodar o comando `npm run test:coverage`
 
 
 ### Rodando a Aplicação
