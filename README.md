@@ -120,4 +120,4 @@ Por fim, é importante também ressaltar a estrutura da entidade no banco de dad
 ```
 
  ### E agora?
- A aplicação busca alimentar uma outra aplicação frontend, caso queira rodar as duas e vê-las funcionando em conjunto. [CLIQUE AQUI!](https://www.linkedin.com/in/hugo-leop/)
+ A aplicação busca alimentar uma outra aplicação frontend, caso queira rodar as duas e vê-las funcionando em conjunto. [CLIQUE AQUI!]([https://github.com/hgo19/bimester-school-control-frontend/tree/main])
