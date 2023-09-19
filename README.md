@@ -42,7 +42,7 @@ git clone git@github.com:hgo19/bimester-school-control-backend.git
 ```
 2. Acesse a pasta do repositório e instale as dependências:
 ```
-cd bimester-school-control-backend
+cd bimester-school-control-backend &&
 npm install 
 ```
 3. Certifique-se de criar um arquivo .env
