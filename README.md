@@ -20,6 +20,8 @@ Foi também desenvolvida através do conceito de TDD, tendo então coverage de 1
 
 
 ### Rodando a Aplicação
+> **Antes de começar é extremamente importante que esteja rodando o MYSQL em sua máquina ou em algum container docker.**
+
 Para rodar a aplicação basta seguir os passos:
 
 1. Clone o repositório em questão:
