@@ -22,6 +22,18 @@ Foi também desenvolvida através do conceito de TDD, tendo então coverage de 1
 ### Rodando a Aplicação
 > **Antes de começar é extremamente importante que esteja rodando o MYSQL em sua máquina ou em algum container docker.**
 
+<details>
+  <summary><strong>Exemplo de cli para rodar Docker:</strong></summary>
+
+```
+docker run -d \
+  --name meu-mysql-container \
+  -e MYSQL_ROOT_PASSWORD=1234 \
+  -p 3367:3306 \
+  mysql:8.0
+```
+</details>
+
 Para rodar a aplicação basta seguir os passos:
 
 1. Clone o repositório em questão:
